@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-size: 14px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 48px;
+  color: #007BFF;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.box{
+    width: 500px;
+    height: 600px;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-radius: 50px;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
+}
+
+.box img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.box p {
+    font-size: 42px;
+    color: #black;
+    margin-top: 20px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+.box:hover {
+  transform: translateY(-10px); /* 위로 3px 이동 */
+}
+
+
+@media (max-width: 1000px) {
+  .box {
+    width: 250px; /* 박스 크기를 줄입니다 */
+    height: 300px; /* 박스 크기를 줄입니다 */
+    border-radius: 25px;
+    border: 2px solid black;
+  }
+
+  .box img {
+    width: 150px; /* 이미지 크기를 줄입니다 */
+    height: 150px; /* 높이는 자동으로 조절되게 설정합니다 */
+  }
+
+  .box p {
+      font-size: 21px;
+      color: #black;
+      margin-top: 10px;
+      font-family: 'NanumSquareNeo-Variable', sans-serif;
+  }
+}
