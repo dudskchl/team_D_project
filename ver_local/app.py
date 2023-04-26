@@ -41,12 +41,9 @@ def gen_frames():  # generate frame by frame from camera
             detections = sv.Detections.from_yolov8(result)
             print(detections)
             
-            # ret, buffer = cv2.imencode('.jpg', frame)
             labels = [f"{model.model.names[class_id]} {confidence:0.2f}" for _, _, confidence, class_id, _ in detections]
             print(labels)
             frame = box_annotator.annotate(scene=frame, detections=detections, labels=labels)
-            #ret, buffer = cv2.imencode('.jpg', frame)
-            # frame = buffer.tobytes()
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
 
