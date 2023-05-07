@@ -41,9 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $row = $result->fetch_assoc();
         if (password_verify($userPassword, $row["userpassword"])) 
-        {?>
-            <script> alert("환영합니다."); location.href="http://localhost/main.html"; </script> 
-        <?php
+        {
+
+            echo "<script>";
+            echo "alert('환영합니다.');";
+            echo "localStorage.setItem('userID', '" . $userID . "');";
+            echo "location.href='http://localhost/main.html';";
+            echo "</script>";
+            
         }
         else 
         {?>
