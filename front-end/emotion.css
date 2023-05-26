@@ -131,3 +131,11 @@ button:hover {
 .retry-btn:hover {
   background-color: #0056b3;
 }
+
+#video-and-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}

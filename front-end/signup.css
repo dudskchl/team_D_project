@@ -17,16 +17,16 @@ body{
 }
 
 .welcome-text {
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: 10px;
-  font-size: 72px;
-  color: #333;
-}
+    text-align: center;
+    margin-top:100px;
+    margin-bottom: 10px;
+    font-size: 72px;
+    color: #333;
+  }
 
 .signup-wrapper{
     width: 400px;
-    height: 450px;
+    height: 440px;
     padding: 40px;
     box-sizing: border-box;
     position: absolute;
@@ -42,6 +42,8 @@ body{
     color: #007BFF;
     margin-bottom: 20px;
 }
+
+
 
 #signup-form > input{
     width: 100%;
@@ -68,6 +70,6 @@ body{
 }
 
 #signup-form > input[type="submit"]:hover {
-    background-color: #0056b3;
-    font-weight: 500;
+    background-color: #0056b3; /* 배경색을 변경하세요. */
+    font-weight: 500; /* 텍스트 두께를 증가시키세요. */
 }

@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-size: 14px;
+  font-family: NanumSquareNeo-Variable, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+#center-content {
+  text-align: center;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+#emotion-content, #webcam-content {
+  display: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+#emotion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+#webcam-content {
+  width: 50%;
+  margin-right: 50px;
+}
+
+#webcam {
+  max-width: 100%;
+  height: auto;
+}
+
+h3 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #007BFF;
+  margin-bottom: 18px;
+  margin-top: 18px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 32px;
+  font-family: NanumSquareNeo-Variable, sans-serif;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.start-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.start-wrapper.hide {
+  display: none;
+}
+
+.start-content {
+  text-align: center;
+}
+
+.webcam-container.hide {
+  display: none;
+}
+
+.left-container.hide {
+  display: none;
+}
+
+.retry-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: NanumSquareNeo-Variable, sans-serif;
+}
+
+.retry-btn:hover {
+  background-color: #0056b3;
+}
+
+#sound-and-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.replay-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.replay-btn img {
+  width: 50px;  /* Adjust the size as needed */
+  height: auto;
+}
+
+.end-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 140px; /* Adjust this value so the buttons don't overlap */
+  background-color: #DC3545; /* You can change this to another color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: NanumSquareNeo-Variable, sans-serif;
+}
+
+.end-btn:hover {
+  background-color: #C82333; /* You can change this to another color */
+}

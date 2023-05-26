@@ -19,20 +19,20 @@ const signupForm = document.querySelector('#signup-form');
 
 signupForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const userID = signupForm.elements.userID.value;
+  const userName = signupForm.elements.userName.value;
   const userPassword = signupForm.elements.userPassword.value;
-  const confirmPassword = signupForm.elements.confirmPassword.value;
+  const userPassword2 = signupForm.elements.userPassword2.value;
 
   const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/g;
 
-  if (userID.length < 6) {
+  if (userName.length < 6) {
     alert('Username must be at least 6 characters long');
     return;
   }
 
-  if (koreanRegex.test(userID)) {
-    alert('userID cannot contain Korean characters');
+  if (koreanRegex.test(userName)) {
+    alert('Username cannot contain Korean characters');
     return;
   }
 
@@ -52,13 +52,13 @@ signupForm.addEventListener('submit', (event) => {
     return;
   }
 
-  if (userPassword !== confirmPassword) {
+  if (userPassword !== userPassword2) {
     alert('Passwords do not match');
     return;
   }
 
-  const sql = 'INSERT INTO users (userid, password) VALUES (?, ?)';
-  connection.query(sql, [userID, userPassword], (error, results, fields) => {
+  const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
+  connection.query(sql, [userName, userPassword], (error, results, fields) => {
     if (error) {
       console.error('Error inserting user into MySQL database: ' + error.stack);
       return;

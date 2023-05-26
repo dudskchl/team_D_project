@@ -14,9 +14,6 @@ function fetchNumOfApples() {
       const responseData = responseText.split(",");
       numofapples = parseInt(responseData[0]);
       favcharacter = responseData[1];
-      
-      // Update the favcharacter value in your code
-      // You can use it wherever needed
 
       for (let i = 0; i < numofapples; i++) {
         const apple = document.createElement("img");
@@ -29,7 +26,6 @@ function fetchNumOfApples() {
       console.error("Error fetching number of apples:", error);
     });
 }
-
 
 
 function displayNumOfApples() {
@@ -48,33 +44,26 @@ function displayNumOfApples() {
     } else if (favcharacter === '아기상어') {
       var videoId = '761ae_KDg_Q';
     }
-  
-    
+
+
     if (videoId) {
       // Check if the video container already exists
       var existingVideoContainer = document.getElementById("video-container");
       if (existingVideoContainer) {
         return; // Video is already displayed, exit the function
       }
-    
+
       // Embed the YouTube video
       var videoContainer = document.createElement("div");
       videoContainer.id = "video-container";
       videoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    
+
       // Append the video container to the document body or a specific element
       document.body.appendChild(videoContainer);
     }
-    
+
 
   }
 }
-
-
-
-
-
-
-
 
 fetchNumOfApples();

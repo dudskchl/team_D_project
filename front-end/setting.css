@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  margin: 0;
+}
+
+.top, .center, .bottom {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.preferences-form {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preferences-form label {
+  margin-bottom: 10px;
+}
+
+.save-button {
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  background-color: #007BFF;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}

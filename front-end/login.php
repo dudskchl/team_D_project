@@ -1,19 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    // Check if the POST variables are set
-    if (isset($_POST["userID"]) && isset($_POST["userPassword"]))
-    {
-        // Initialize variables with form data
-        $userID = $_POST["userID"];
-        $userPassword = $_POST["userPassword"];
+    // Initialize variables with form data
+    $userID = $_POST["userID"];
+    $userPassword = $_POST["userPassword"];
 
-        // Check if the inputs are not empty
-        if (empty($userID) || empty($userPassword))
-        {?>
-            <script> alert("Please enter both userid and password."); location.href="http://localhost/login.html"; </script>
-        <?php
-        }
+    // Check if the inputs are not empty
+    if (empty($userID) || empty($userPassword))
+    {?>
+        <script> alert("Please enter both userid and password."); location.href="http://localhost/login.html"; </script>
+    <?php
     }
 
 

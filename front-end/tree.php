@@ -1,7 +1,7 @@
 <?php
 $servername = "127.0.0.1";
 $username = "root";
-$password = "changethis";
+$password = "1234";
 $dbname = "capstonedesign";
 
 // Create connection
