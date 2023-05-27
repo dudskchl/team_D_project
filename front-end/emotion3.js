@@ -62,13 +62,33 @@ const emotions = {
   ],
 };
 
+const people = {
+  minji: "민지는",
+  minseok: "민석이는",
+  minsu: "튼튼반선생님은",
+  seoyeon: "서연이는",
+  sookja: "원장선생님은",
+  sujin: "햇님반선생님은",
+  sunyoung: "달님반선생님은"
+};
+
+
+
+
 const emotionKeys = Object.keys(emotions);
 const randomEmotion = emotionKeys[Math.floor(Math.random() * emotionKeys.length)];
 const randomPerson = emotions[randomEmotion][Math.floor(Math.random() * 7)];
+const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+const person = randomPerson.split("/").pop().split("_").pop();
+const personName = people[person];
+
+const question = document.querySelector('h3');
+question.textContent = `${personName} 현재 어떤 기분일까요?`;
 
 emotionImage.src = `${randomPerson}.mp4`;
 
-const audioFilePath = `${randomPerson}.mp3`;
+const audioFilePath = `${randomPerson}${randomNumber}.mp3`;
 //const audioFilePath = `surprise/surprise_sunyoung.mp3`;
 const audio = new Audio(audioFilePath);
 playSoundButton.addEventListener("click", () => {
