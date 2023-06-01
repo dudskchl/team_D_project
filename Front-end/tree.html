@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>칭찬나무방</title>
+    <link rel="stylesheet" href="tree.css">
+    <style>
+
+      .tree-wrapper {
+        position: relative;
+        width: 20%; /* Set the width to 33.33% of the container */
+        height: auto;
+      }
+      .tree {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: -1;
+      }
+      .display-youtube-reward-button,
+      .display-snack-reward-button {
+        width: 200px; /* Adjust the width as needed */
+        height: 100px; /* Adjust the height as needed */
+        margin-bottom: 10px; /* Add some spacing between the buttons */
+      }
+      .button-text {
+        text-align: center;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 20px;
+      }
+      .button-image {
+        width: 32%;
+        height: auto;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;칭찬나무방</h1>
+    <div class="tree-container">
+      <div class="tree-wrapper">
+        <div class="apple-container" id="apple-container"></div>
+        <img class="tree" src="tree.png" />
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <button class="display-youtube-reward-button" onclick="window.location.href = 'youtube-reward.html'">
+        노래 보상 상자
+        <img src="선물박스.png" class="button-image" alt="Emotion">
+      </button>
+
+      <button class="display-snack-reward-button" onclick="window.location.href = 'snack-reward.html'">
+        간식 보상 상자
+        <img src="선물박스.png" class="button-image" alt="Emotion">
+      </button>
+    </div>
+    <script src="tree.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </body>
+</html>

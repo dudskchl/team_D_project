@@ -1,0 +1,92 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-size: 14px;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  height: 100vh;
+  overflow: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  font-size: 48px;
+  color: #007BFF;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.box{
+  width: 300px;
+  min-width: 300px;
+  height: 400px;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-radius: 50px;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s;
+}
+
+.box img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.box p {
+  font-size: 40px;
+  color: black;
+  margin-top: 20px;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+}
+
+.settings-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.settings-button:hover {
+  background-color: #0056b3;
+}

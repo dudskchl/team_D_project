@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body{
+    font-size: 14px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.welcome-text {
+  text-align: center;
+  margin-top:150px;
+  margin-bottom: 10px;
+  font-size: 72px;
+  color: #333;
+}
+
+.login-wrapper{
+    width: 400px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #007BFF;
+    border-radius: 10px;
+}
+
+.login-wrapper > h2{
+    font-size: 24px;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+
+
+.description-save-id {
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    margin-left: 5px;
+    display: inline;
+}
+
+.signup-link {
+    float: right;
+    color: #999999;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.signup-link:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+#login-form > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+#login-form > input::placeholder{
+    color: #D2D2D2;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+#login-form > input[type="submit"]{
+    color: #fff;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 16px;
+    background-color: #007BFF;
+    margin-top: 20px;
+}
+
+#login-form > input[type="submit"]:hover {
+    background-color: #0056b3; /* 배경색을 변경하세요. */
+    font-weight: 500; /* 텍스트 두께를 증가시키세요. */
+}
+
+
+
+
+
+#login-form > label{
+    color: #999999;
+}

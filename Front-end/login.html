@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <h3 class="welcome-text">반가워요!</h3>
+    <div class="login-wrapper">
+        <h2>누구신지 알려주세요</h2>
+        <form method="post" action="login.php" id="login-form">
+            <input type="text" name="userID" placeholder="아이디">
+            <input type="password" name="userPassword" placeholder="비밀번호">
+            <label for="save-id" class="save-label">
+                <input type="checkbox" id="save-id">
+                <div class="description-save-id">아이디 저장하기</div>
+            </label>
+            <a href="signup.html" class="signup-link">회원가입하기</a>
+            <input type="submit" value="로그인">
+        </form>
+    </div>
+  </body>
+</html>

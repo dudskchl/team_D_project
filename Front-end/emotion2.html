@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Emotion Page</title>
+    <link rel="stylesheet" href="emotion.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="center-content">
+        <div id="video-and-button">
+            <button id="play-sound" class="replay-btn">다시듣기</button>
+            <video id="emotion-video" autoplay muted loop></video>
+        </div>
+        <h3>이 분은 현재 어떤 기분일까요?</h3>
+        <button id="happy">기쁨</button>
+        <button id="sad">슬픔</button>
+        <button id="anger">화남</button>
+        <button id="fear">무서움</button>
+        <button id="surprise">놀람</button>
+      </div>
+      <div id="emotion-content">
+      </div>
+      <div id="webcam-content">
+        <video id="webcam" autoplay muted></video>
+      </div>
+      <button id="retry" class="retry-btn">다시하기</button>
+    </div>
+    <script src="emotion2.js"></script>
+  </body>
+</html>
