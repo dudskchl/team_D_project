@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Establish a database connection
   $servername = "127.0.0.1";
   $username = "root";
-  $password = "changethis";
+  $password = "1234";
   $dbname = "capstonedesign";
 
   // Create a connection

@@ -132,14 +132,14 @@ endButton.addEventListener("click", () => {
 
 
 
-happyButton.addEventListener("click", () => checkAnswer("happy"));
-sadButton.addEventListener("click", () => checkAnswer("sad"));
-angerButton.addEventListener("click", () => checkAnswer("anger"));
-fearButton.addEventListener("click", () => checkAnswer("fear"));
-surpriseButton.addEventListener("click", () => checkAnswer("surprise"));
+appleButton.addEventListener("click", () => checkAnswer("apple"));
+bananaButton.addEventListener("click", () => checkAnswer("banana"));
+grapeButton.addEventListener("click", () => checkAnswer("grape"));
+orangeButton.addEventListener("click", () => checkAnswer("orange"));
+strawberryButton.addEventListener("click", () => checkAnswer("strawberry"));
 
 function checkAnswer(answer) {
-  if (answer === randomEmotion) {
+  if (answer === randomObject) {
     showContent(true);
   } else {
     showContent(false);
@@ -155,7 +155,7 @@ function showContent(isCorrect) {
     if (isCorrect) {
       // Send an HTTP request to the PHP file
       var xhr = new XMLHttpRequest();
-      var url = 'emotion.php';
+      var url = 'object.php';
       var method = 'POST';
 
       xhr.open(method, url, true);
@@ -169,19 +169,16 @@ function showContent(isCorrect) {
           var response = xhr.responseText;
           console.log(response);
 
-          // Call a function to handle the response
-          // Parse the response or perform any additional actions based on the response
-          console.log('Response received:', response);
           // Update the content or perform any other desired actions
-          emotionContent.innerHTML = `
-            <video src="${randomPerson}.mp4" autoplay muted loop></video>
+          objectContent.innerHTML = `
+            <img src="${objects[randomObject]}.png" alt="object">
             <h2>정답입니다! 잘하셨어요!</h2>
-            <h3>${emotionToKorean(randomEmotion)} 표정을 지어보세요!</h3>
+            <h3>${objectToKorean(randomObject)}를 보여주세요!</h3>
           `;
-          emotionContent.style.display = 'flex';
-          emotionContent.style.flexDirection = 'column';
-          emotionContent.style.alignItems = 'center';
-          emotionContent.style.width = '50%';
+          objectContent.style.display = 'flex';
+          objectContent.style.flexDirection = 'column';
+          objectContent.style.alignItems = 'center';
+          objectContent.style.width = '50%';
 
           webcamContent.style.display = 'flex';
 
@@ -189,7 +186,7 @@ function showContent(isCorrect) {
           document.querySelector('.end-btn').style.display = 'block';
 
           setTimeout(() => {
-            emotionContent.style.opacity = '1';
+            objectContent.style.opacity = '1';
             webcamContent.style.opacity = '1';
             startWebcam();
           }, 10);
@@ -202,17 +199,17 @@ function showContent(isCorrect) {
       xhr.send(requestBody);
 
     } else {
-      emotionContent.innerHTML = `
-        <video src="${randomPerson}.mp4" autoplay muted loop></video>
-        <h2>틀렸습니다. 정답은 ${emotionToKorean2(randomEmotion)}입니다.</h2>
-        <h3>${emotionToKorean(randomEmotion)} 표정을 지어보세요!</h3>
+      objectContent.innerHTML = `
+        <img src="${objects[randomObject]}.png" alt="object">
+        <h2>틀렸습니다. 정답은 ${objectToKorean(randomObject)}입니다.</h2>
+        <h3>${objectToKorean(randomObject)}를 보여주세요!</h3>
       `;
 
-      emotionContent.style.display = 'flex';
-      emotionContent.style.flexDirection = 'column';
-      emotionContent.style.alignItems = 'center';
-      emotionContent.style.width = '50%';
-      emotionContent.style.opacity = '1';
+      objectContent.style.display = 'flex';
+      objectContent.style.flexDirection = 'column';
+      objectContent.style.alignItems = 'center';
+      objectContent.style.width = '50%';
+      objectContent.style.opacity = '1';
 
       webcamContent.style.display = 'flex';
       webcamContent.style.opacity = '1';
@@ -225,7 +222,6 @@ function showContent(isCorrect) {
 
   }, 1500);
 }
-
 
 async function startWebcam() {
   try {
