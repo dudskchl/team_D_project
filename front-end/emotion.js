@@ -1,3 +1,6 @@
+// JavaScript code for the Emotion Page
+// Add your JavaScript code here
+
 const centerContent = document.getElementById("center-content");
 const emotionImage = document.getElementById("emotion-image");
 const emotionContent = document.getElementById("emotion-content");
@@ -76,24 +79,13 @@ function emotionToKorean(emotion) {
     happy: "기쁜",
     sad: "슬픈",
     anger: "화난",
-    fear: "무서운",
+    fear: "두려운",
     surprise: "놀란",
   };
 
   return koreanEmotions[emotion] || emotion;
 };
 
-function emotionToKorean2(emotion) {
-  const koreanEmotions = {
-    happy: "기쁨",
-    sad: "슬픔",
-    anger: "화남",
-    fear: "무서움",
-    surprise: "놀람",
-  };
-
-  return koreanEmotions[emotion] || emotion;
-};
 
 retryButton.addEventListener("click", () => {
   location.reload();
@@ -118,79 +110,67 @@ function checkAnswer(answer) {
 function showContent(isCorrect) {
   centerContent.style.opacity = '0';
 
-  setTimeout(() => {
+  setTimeout(() => {   
     centerContent.style.display = 'none';
 
     if (isCorrect) {
-      // Send an HTTP request to the PHP file
-      var xhr = new XMLHttpRequest();
-      var url = 'emotion.php';
-      var method = 'POST';
 
-      xhr.open(method, url, true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          // Send an HTTP request to the PHP file
+    var xhr = new XMLHttpRequest();
+    var url = 'emotion.php';
+    var method = 'POST';
 
-      // Construct the request body
-      var requestBody = 'userID=' + encodeURIComponent(userID);
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          var response = xhr.responseText;
-          console.log(response);
+    // Construct the request body
+    var requestBody = 'userID=' + encodeURIComponent(userID);
 
-          // Call a function to handle the response
-          // Parse the response or perform any additional actions based on the response
-          console.log('Response received:', response);
-          // Update the content or perform any other desired actions
-          emotionContent.innerHTML = `
-            <img src="${randomPerson}.png" alt="emotion">
-            <h2>정답입니다! 잘하셨어요!</h2>
-            <h3>${emotionToKorean(randomEmotion)} 표정을 지어보세요!</h3>
-          `;
-          emotionContent.style.display = 'flex';
-          emotionContent.style.flexDirection = 'column';
-          emotionContent.style.alignItems = 'center';
-          emotionContent.style.width = '50%';
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        var response = xhr.responseText;
+        console.log(response);
+        handleResponse(response); // Call a function to handle the response
+      } else {
+        console.error('Request failed. Status:', xhr.status);
+      }
+    };
 
-          webcamContent.style.display = 'flex';
-
-          setTimeout(() => {
-            emotionContent.style.opacity = '1';
-            webcamContent.style.opacity = '1';
-            startWebcam();
-          }, 1000);
-
-        } else {
-          console.error('Request failed. Status:', xhr.status);
-        }
-      };
-
-      xhr.send(requestBody);
+    xhr.send(requestBody);
 
     } else {
       emotionContent.innerHTML = `
         <img src="${randomPerson}.png" alt="emotion">
-        <h2>틀렸습니다. 정답은 ${emotionToKorean2(randomEmotion)}입니다.</h2>
+        <h2>틀렸습니다. 정답은 ${emotionToKorean(randomEmotion)}입니다.</h2>
         <h3>${emotionToKorean(randomEmotion)} 표정을 지어보세요!</h3>
       `;
-
-      emotionContent.style.display = 'flex';
-      emotionContent.style.flexDirection = 'column';
-      emotionContent.style.alignItems = 'center';
-      emotionContent.style.width = '50%';
-      emotionContent.style.opacity = '1';
-
-      webcamContent.style.display = 'flex';
-      webcamContent.style.opacity = '1';
-
-      startWebcam();
-
-      document.querySelector('.retry-btn').style.display = 'block';
     }
 
   }, 1500);
 }
 
+function handleResponse(response) {
+  // Parse the response or perform any additional actions based on the response
+  console.log('Response received:', response);
+  // Update the content or perform any other desired actions
+  emotionContent.innerHTML = `
+  <img src="${randomPerson}.png" alt="emotion">
+  <h2>정답입니다! 잘하셨어요!</h2>
+  <h3>${emotionToKorean(randomEmotion)} 표정을 지어보세요!</h3>
+  `;
+  emotionContent.style.display = 'flex';
+  emotionContent.style.flexDirection = 'column';
+  emotionContent.style.alignItems = 'center';
+  emotionContent.style.width = '50%';
+
+  webcamContent.style.display = 'flex';
+
+  setTimeout(() => {
+    emotionContent.style.opacity = '1';
+    webcamContent.style.opacity = '1';
+    startWebcam();
+  }, 1000);
+}
 
 async function startWebcam() {
   try {
@@ -199,5 +179,5 @@ async function startWebcam() {
   } catch (err) {
     console.error('Error accessing webcam: ', err);
   }
-
+  
 }

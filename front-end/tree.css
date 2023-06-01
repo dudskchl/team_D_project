@@ -15,20 +15,4 @@
   margin: 5px;
 }
 
-.tree-container {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-}
 
-.tree-wrapper {
-  position: relative;
-  width: 80vw;
-}
-
-.tree {
-  position: absolute;
-  width: 100%;
-  height: auto;
-}
