@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     // Connect to the database
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "1234";
+    $password = "changethis";
     $dbname = "capstonedesign";
 
     // Create connection
@@ -40,21 +40,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if ($result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
-        if (password_verify($userPassword, $row["userpassword"]))
-        {
+        if (password_verify($userPassword, $row["userpassword"])) {
 
             echo "<script>";
-            //echo "alert('환영합니다.');";
+            echo "var audio = new Audio('success.mp3');";
+            echo "audio.volume = 0.5;"; // Adjust the volume as needed (0.5 = 50%)
+            echo "audio.play();";
             echo "localStorage.setItem('userID', '" . $userID . "');";
-            echo "location.href='main.html';";
+            echo "setTimeout(function() { location.href='main.html'; }, 2000);"; // Delay redirection for 2000 milliseconds (2 seconds)
             echo "</script>";
-
+        
         }
+        
         else
         {?>
             <script> alert("잘못된 비밀번호입니다."); location.href="login.html"; </script>
         <?php
         }
+
+
     }
     else
     {?>
