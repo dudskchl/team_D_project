@@ -40,10 +40,18 @@ function setPreferences() {
 }
 
 function handleResponse(response) {
-    // Display alert message
-    //alert("설정이 완료되었어요.");
-  
-    // Redirect to main.html
-    window.location.href = "main.html";
-  }
+  // Display alert message
+  //alert("설정이 완료되었어요.");
+
+  // Create an audio element and play the audio file
+  var audio = new Audio('success.mp3');
+  audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+  audio.play();
+
+  // Redirect to main.html after a delay of 2 seconds (2000 milliseconds)
+  setTimeout(function() {
+    window.location.href = 'main.html';
+  }, 2000);
+}
+
   
