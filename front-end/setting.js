@@ -41,7 +41,7 @@ function setPreferences() {
 
 function handleResponse(response) {
     // Display alert message
-    alert("설정이 완료되었어요.");
+    //alert("설정이 완료되었어요.");
   
     // Redirect to main.html
     window.location.href = "main.html";
