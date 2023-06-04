@@ -1,14 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["favcharacter"], $_POST["favsnack"], $_POST["userID"])) {
-        $favcharacter = $_POST["favcharacter"];
+    if (isset($_POST["favsnack"], $_POST["userID"])) {
+
         $favsnack = $_POST["favsnack"];
         $userID = $_POST["userID"];
 
         // Establish a database connection
         $servername = "127.0.0.1";
         $username = "root";
-        $password = "1234";
+        $password = "changethis";
         $dbname = "capstonedesign";
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Prepare the SQL update statement
-        $sqlUpdate = 'UPDATE users SET favcharacter = ?, favsnack = ? WHERE userid = ?';
+        $sqlUpdate = 'UPDATE users SET favsnack = ? WHERE userid = ?';
 
         // Create a prepared statement
         $stmt = $conn->prepare($sqlUpdate);
 
         // Bind the parameters
-        $stmt->bind_param('sss', $favcharacter, $favsnack, $userID);
+        $stmt->bind_param('ss', $favsnack, $userID);
 
         // Execute the update query
         if ($stmt->execute()) {
