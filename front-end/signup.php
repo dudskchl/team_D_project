@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo '<audio autoplay><source src="success.mp3"></audio>';
 
             echo "<script>";
-            echo "setTimeout(function() { location.href='login.html'; }, 2000);"; 
+            echo "setTimeout(function() { window.location.href = 'login.html';; }, 2000);"; 
             echo "</script>";
         }
 
