@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         // All checks pass, store the user information in the database
         $servername = "127.0.0.1";
         $username = "root";
-        $password = "1234";
+        $password = "changethis";
         $dbname = "capstonedesign";
 
         // Create connection
@@ -70,7 +70,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         if ($conn->query($sql) === TRUE)
         {
+            echo '<audio autoplay><source src="success.mp3"></audio>';
+
+            echo "<script>";
+            echo "setTimeout(function() { location.href='login.html'; }, 2000);"; 
+            echo "</script>";
         }
+
+
         else
         {
             echo "Error: " . $sql . "<br>" . $conn->error;
