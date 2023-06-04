@@ -53,4 +53,28 @@ body {
 
 .save-button:hover {
   background-color: #0056b3;
+
+}
+
+
+label {
+  font-size: 20px; 
+}
+
+input[type="text"] {
+  font-size: 20px;
+
+}
+
+.setting-wrapper{
+  width: 800px;
+  height: 350px;
+  padding: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #007BFF;
+  border-radius: 10px;
 }
