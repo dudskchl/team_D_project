@@ -6,7 +6,7 @@ $numofstickers = $_GET['numofstickers'];
 // Connect to your MySQL database (replace with your actual database credentials)
 $servername = "127.0.0.1";
 $username = "root";
-$password = "changethis";
+$password = "1234";
 $dbname = "capstonedesign";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-size: 60px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    display: flex;
+    justify-content: center;
+
+    min-height: 100vh; /* Set minimum height to viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    text-align: center;
+}
+
+.displaypororoshort-button,
+.displaypororolong-button,
+.displaytayoshort-button,
+.displaytayolong-button,
+.displaypengsushort-button,
+.displaypengsulong-button,
+.displaybabysharkshort-button,
+.displaybabysharklong-button {
+    font-size: 15px;
+    font-weight: bold;
+    width: 250px;
+    height: 140px;
+    box-sizing: border-box;
+    margin: 10px;
+    margin-left:4px;
+    margin-right:4px;
+
+    border-radius: 4px;
+    background-color: white;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    color: #000;
+    border: 2px solid black;
+    transition: transform 0.3s;
+}
+
+.displaypororoshort-button:hover,
+.displaypororolong-button:hover,
+.displaytayoshort-button:hover,
+.displaytayolong-button:hover,
+.displaypengsushort-button:hover,
+.displaypengsulong-button:hover,
+.displaybabysharkshort-button:hover,
+.displaybabysharklong-button:hover {
+  transform: translateY(-10px);
+}
+
+h1 {
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-size: 60px;
+    color: #007BFF;
+    margin: 100px;
+}
+
+.button-image {
+    width: 32%;
+    height: auto;
+}
