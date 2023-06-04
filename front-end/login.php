@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     // Connect to the database
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "changethis";
+    $password = "1234";
     $dbname = "capstonedesign";
 
     // Create connection
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             echo "audio.volume = 0.5;"; // Adjust the volume as needed (0.5 = 50%)
             echo "audio.play();";
             echo "localStorage.setItem('userID', '" . $userID . "');";
-            echo "setTimeout(function() { location.href='main.html'; }, 2000);"; // Delay redirection for 2000 milliseconds (2 seconds)
+            echo "setTimeout(function() { window.location.href='main.html'; }, 2000);"; // Delay redirection for 2000 milliseconds (2 seconds)
             echo "</script>";
         
         }
