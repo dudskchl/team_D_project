@@ -1,69 +1,57 @@
-const mysql = require('mysql');
+var preferencesForm = document.querySelector(".preferences-form");
+var saveButton = document.querySelector(".save-button");
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'mydatabase'
-});
+const userID = localStorage.getItem('userID');
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
+saveButton.addEventListener("click", setPreferences);
+
+function setPreferences() {
+
+  var favoriteSnack = document.querySelector("input[name='favoritesnack']").value;
+
+
+  if (!favoriteSnack) {
+    alert("간식을 입력해주세요.");
     return;
-  }
-  console.log('Connected to MySQL database as id ' + connection.threadId);
-});
 
-const signupForm = document.querySelector('#signup-form');
-
-signupForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const userName = signupForm.elements.userName.value;
-  const userPassword = signupForm.elements.userPassword.value;
-  const userPassword2 = signupForm.elements.userPassword2.value;
-
-  const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-  const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/g;
-
-  if (userName.length < 6) {
-    alert('Username must be at least 6 characters long');
-    return;
   }
 
-  if (koreanRegex.test(userName)) {
-    alert('Username cannot contain Korean characters');
-    return;
-  }
+  var xhr = new XMLHttpRequest();
+  var url = 'setting.php';
+  var method = 'POST';
 
-  if (userPassword.length < 8) {
-    alert('Password must be at least 8 characters long');
-    return;
-  }
+  xhr.open(method, url, true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-  if (koreanRegex.test(userPassword)) {
-    alert('Password cannot contain Korean characters');
-    return;
-  }
+  var requestBody = '&favsnack=' + encodeURIComponent(favoriteSnack) + '&userID=' + encodeURIComponent(userID);
 
-  const specialChars = userPassword.match(specialCharRegex);
-  if (!specialChars || specialChars.length < 2) {
-    alert('Password must contain at least two special characters');
-    return;
-  }
-
-  if (userPassword !== userPassword2) {
-    alert('Passwords do not match');
-    return;
-  }
-
-  const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
-  connection.query(sql, [userName, userPassword], (error, results, fields) => {
-    if (error) {
-      console.error('Error inserting user into MySQL database: ' + error.stack);
-      return;
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      var response = xhr.responseText;
+      console.log(response);
+      handleResponse(response); // Call a function to handle the response
+    } else {
+      console.error('Request failed. Status:', xhr.status);
     }
-    console.log('User inserted into MySQL database with id ' + results.insertId);
-    // redirect the user to a success page or perform some other action
-  });
-});
+  };
+  
+  xhr.send(requestBody);
+
+}
+
+function handleResponse(response) {
+  // Display alert message
+  //alert("설정이 완료되었어요.");
+
+  // Create an audio element and play the audio file
+  var audio = new Audio('success.mp3');
+  audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+  audio.play();
+
+  // Redirect to main.html after a delay of 2 seconds (2000 milliseconds)
+  setTimeout(function() {
+    window.location.href = 'main.html';
+  }, 2000);
+}
+
+  
