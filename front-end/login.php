@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
 
             echo "<script>";
-            echo "alert('환영합니다.');";
+            //echo "alert('환영합니다.');";
             echo "localStorage.setItem('userID', '" . $userID . "');";
             echo "location.href='main.html';";
             echo "</script>";
