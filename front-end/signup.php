@@ -69,9 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         VALUES ('$userName', '$userID', '$hashedPassword', 0, NULL, NULL)";
 
         if ($conn->query($sql) === TRUE)
-        {?>
-            //<script> alert("회원가입이 완료되었습니다."); location.href="login.html"; </script>
-        <?php
+        {
         }
         else
         {
