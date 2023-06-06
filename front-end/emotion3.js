@@ -234,5 +234,23 @@ async function startWebcam() {
   } catch (err) {
     console.error('Error accessing webcam: ', err);
   }
-
 }
+
+const socket = io.connect('http://127.0.0.1:5000/');
+socket.on('connect', function() {
+  console.log('Connected!');
+});
+
+socket.emit('send emotion', { emotion: randomEmotion });
+
+// Handle the 'success' event from the server
+socket.on('emotion result', function(data) {
+  if (data.result === 'success') {
+    // You guessed the right emotion!
+    console.log('You guessed the right emotion!');
+    alert('정답입니다! 잘하셨어요!')
+  } else {
+    // You guessed the wrong emotion!
+    console.log('You guessed the wrong emotion!');
+  }
+});

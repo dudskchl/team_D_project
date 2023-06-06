@@ -1,4 +1,6 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
+from flask_socketio import SocketIO
+from flask_cors import CORS
 from ultralytics import YOLO
 import argparse
 import supervision as sv
@@ -7,6 +9,25 @@ import cv2
 
 
 app = Flask(__name__)
+CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+class_id_mapping = { 
+    'anger': 0,
+    'disgust': 1,
+    'happy': 2,
+    'fear': 3,
+    'neutral': 4,
+    'sad': 5,
+    'surprise': 6,
+}
+
+@socketio.on('send emotion')
+def handle_emotion(data):
+    global target_class_id  
+    emotion = data['emotion']
+    target_class_id = class_id_mapping.get(emotion) 
+    print('Received emotion:', emotion)
 
 camera = cv2.VideoCapture(0)  # use 0 for web camera
 # for local webcam use cv2.VideoCapture(0)
@@ -27,10 +48,10 @@ def gen_frames():  # generate frame by frame from camera
     camera.set(3, frame_width)
     camera.set(4, frame_height)
 
-
     model = YOLO("best.pt")
     box_annotator = sv.BoxAnnotator(thickness=2, text_thickness=2, text_scale=1)
-
+    target_class_confidence = 0.7  # The minimum confidence for the target class
+    
     while True:
         # Capture frame-by-frame
         success, frame = camera.read()  # read the camera frame
@@ -41,6 +62,12 @@ def gen_frames():  # generate frame by frame from camera
             detections = sv.Detections.from_yolov8(result)
             print(detections)
             
+            for _, _, confidence, class_id, _ in detections:
+                if class_id == target_class_id and confidence >= target_class_confidence:
+                    socketio.emit('emotion result', {'result': 'success'})
+                    print('success')
+                else:
+                    socketio.emit('emotion result', {'result': 'fail'})
             labels = [f"{model.model.names[class_id]} {confidence:0.2f}" for _, _, confidence, class_id, _ in detections]
             print(labels)
             frame = box_annotator.annotate(scene=frame, detections=detections, labels=labels)
@@ -62,6 +89,17 @@ def index():
     """Video streaming home page."""
     return render_template('index.html')
 
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
+
+@socketio.on('message')
+def handle_message(data):
+    print('Received message: ' + data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app)

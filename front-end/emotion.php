@@ -1,5 +1,6 @@
 <?php
 // PHP code for handling the emotion request
+header('Access-Control-Allow-Origin: *');
 
 
 // Check if the request method is POST
