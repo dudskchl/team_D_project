@@ -30,19 +30,58 @@ function checkAndDisplay(item) {
             // Verify if the update was successful
             if (updatedData === "success") {
               if (item === 1) {
-                alert("아이스크림 교환권을 받았어요. 부모님께 아이스크림을 받으세요.");
+                var audio = new Audio('success.mp3');
+                audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+                audio.play();
+                
+                // Delayed alert message after 2 seconds
+                setTimeout(function() {
+                  alert("아이스크림 교환권을 받았어요. 부모님께 아이스크림을 받으세요.");
+                }, 2000);
+                
               } else if (item === 2) {
-                alert("사탕 교환권을 받았어요. 부모님께 사탕을 받으세요.");
+                var audio = new Audio('success.mp3');
+                audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+                audio.play();
+                
+                // Delayed alert message after 2 seconds
+                setTimeout(function() {
+                  alert("사탕 교환권을 받았어요. 부모님께 사탕을 받으세요.");
+                }, 2000);
+          
               } else if (item === 3) {
-                alert("젤리 교환권을 받았어요. 부모님께 젤리를 받으세요.");
+                var audio = new Audio('success.mp3');
+                audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+                audio.play();
+                
+                // Delayed alert message after 2 seconds
+                setTimeout(function() {
+                  alert("젤리 교환권을 받았어요. 부모님께 젤리를 받으세요.");
+                }, 2000);
+                
               } else if (item === 4) {
-                alert("초콜렛 교환권을 받았어요. 부모님께 초콜렛을 받으세요.");
+                var audio = new Audio('success.mp3');
+                audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+                audio.play();
+                
+                // Delayed alert message after 2 seconds
+                setTimeout(function() {
+                  alert("초콜렛 교환권을 받았어요. 부모님께 초콜렛을 받으세요.");
+                }, 2000);
+                
               } else if (item === 5) {
                 // Fetch the favorite snack from the database
                 return fetch("fetch-favsnack.php?userID=" + userID)
                   .then(response => response.text())
                   .then(favsnack => {
-                    alert(`${favsnack} 교환권을 받았어요. 부모님께 ${favsnack}을(를) 받으세요.`);
+                    var audio = new Audio('success.mp3');
+                    audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+                    audio.play();
+                  
+                    // Delayed alert message after 2 seconds
+                    setTimeout(function() {
+                      alert(`${favsnack} 교환권을 받았어요. 부모님께 ${favsnack}을(를) 받으세요.`);
+                    }, 2000);
                   })
                   .catch(error => {
                     console.error('Error:', error);

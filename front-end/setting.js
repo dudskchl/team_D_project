@@ -6,14 +6,11 @@ const userID = localStorage.getItem('userID');
 saveButton.addEventListener("click", setPreferences);
 
 function setPreferences() {
-  var selectedCharacter = document.querySelector("input[name='favorite']:checked");
+
   var favoriteSnack = document.querySelector("input[name='favoritesnack']").value;
 
-  if (!selectedCharacter) {
-    alert("캐릭터를 골라주세요.");
-    return;
-  }
-  else if (!favoriteSnack) {
+
+  if (!favoriteSnack) {
     alert("간식을 입력해주세요.");
     return;
 
@@ -26,7 +23,7 @@ function setPreferences() {
   xhr.open(method, url, true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-  var requestBody = 'favcharacter=' + encodeURIComponent(selectedCharacter.value) + '&favsnack=' + encodeURIComponent(favoriteSnack) + '&userID=' + encodeURIComponent(userID);
+  var requestBody = '&favsnack=' + encodeURIComponent(favoriteSnack) + '&userID=' + encodeURIComponent(userID);
 
   xhr.onload = function () {
     if (xhr.status === 200) {
@@ -43,10 +40,18 @@ function setPreferences() {
 }
 
 function handleResponse(response) {
-    // Display alert message
-    alert("설정이 완료되었어요.");
-  
-    // Redirect to main.html
-    window.location.href = "main.html";
-  }
+  // Display alert message
+  //alert("설정이 완료되었어요.");
+
+  // Create an audio element and play the audio file
+  var audio = new Audio('success.mp3');
+  audio.volume = 0.5; // Adjust the volume as needed (0.5 = 50%)
+  audio.play();
+
+  // Redirect to main.html after a delay of 2 seconds (2000 milliseconds)
+  setTimeout(function() {
+    window.location.href = 'main.html';
+  }, 2000);
+}
+
   

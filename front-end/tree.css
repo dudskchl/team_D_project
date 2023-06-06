@@ -1,3 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body{
+    margin-top: 50px;
+    font-size: 14px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 48px;
+    color: #333;
+}
+
 .apple-container {
   position: absolute;
   top: 0;
@@ -5,7 +35,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 70%;
+  padding: 100px;
+  padding-top: 100px;
 }
 
 .apple {
@@ -15,4 +47,61 @@
   margin: 5px;
 }
 
+.tree-wrapper {
+  position: relative;
+  width: 600px;
+  height: 700px;
+}
 
+.tree {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+.reward-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.display-youtube-reward-button,
+.display-snack-reward-button {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  color: #000;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 0px solid black;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.display-youtube-reward-button:hover,
+.display-snack-reward-button:hover {
+  transform: translateY(-10px);
+}
+
+.button-text {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 20px;
+}
+
+.button-image {
+  width: 32%;
+  height: auto;
+}
+
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
