@@ -1,9 +1,9 @@
-DROP TABLE users;
 CREATE TABLE users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     userid VARCHAR(30) NOT NULL,
     userpassword VARCHAR(300) NOT NULL,
     numofstickers NUMERIC(65),
-    favcharacter VARCHAR(30)
+    favcharacter VARCHAR(30),
+    favsnack VARCHAR(30)
 );
